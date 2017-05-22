@@ -12,6 +12,11 @@ eureka:
     serviceUrl: 
       defaultZone: http://10.100.3.129:8761/eureka/
 zuul:
+  routes:
+    app-microservice:
+      path: /api/**
+      service-id: app-microservice
+      sensitiveHeaders: 
   #ignored-services: microservice-front-provider   #不发布此服务，内部也无法访问
 redis:
   hostname: 10.100.3.127
