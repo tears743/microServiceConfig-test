@@ -12,6 +12,12 @@ eureka:
     serviceUrl: 
       defaultZone: http://10.100.3.129:8761/eureka/
 zuul:
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   routes:
     app-microservice:
       path: /api/**
