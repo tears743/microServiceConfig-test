@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: microservice-api-gateway
+  session:
+    store-type: redis
+server: 
+  port: 8050
+eureka: 
+  client: 
+    healthcheck:
+      enabled: true
+    serviceUrl: 
+      defaultZone: http://10.100.3.129:8761/eureka/
+zuul:
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  routes:
+    app-microservice:
+      path: /api/**
+      service-id: app-microservice
+      sensitiveHeaders: 
+  #ignored-services: microservice-front-provider   #不发布此服务，内部也无法访问
+redis:
+  hostname: 10.100.3.127
+  port: 6379
+robbin:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
