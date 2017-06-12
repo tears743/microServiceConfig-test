@@ -10,7 +10,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl: 
-      defaultZone: http://10.100.3.129:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 zuul:
   max:
     host:
