@@ -10,7 +10,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl: 
-      defaultZone: http://10.100.3.129:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 zuul:
   max:
     host:
@@ -26,7 +26,32 @@ zuul:
   #ignored-services: microservice-front-provider   #不发布此服务，内部也无法访问
 redis:
   hostname: 10.100.3.127
-
+  port: 6379
 robbin:
   ReadTimeout: 60000
   ConnectTimeout: 60000
+kaptcha:  
+  session:  
+    key: kaptcha.code  
+  #border: no  
+  #渲染效果：水纹：WaterRipple；鱼眼：FishEyeGimpy；阴影：ShadowGimpy  
+  obscurificator:  
+    impl: com.google.code.kaptcha.impl.WaterRipple  
+  #不要噪点  
+  noise:  
+    impl: com.google.code.kaptcha.impl.NoNoise  
+  image:  
+    width: 90  
+    height: 33  
+  textproducer:  
+    font:  
+      size: 25  
+      color: black  
+    char:  
+      length: 4  
+      space: 5  
+  #和登录框背景颜色一致  
+  background:  
+    clear:  
+      from: 247,247,247 
+      to: 247,247,247 
